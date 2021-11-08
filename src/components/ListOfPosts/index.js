@@ -4,7 +4,9 @@ import { useQuery, gql } from '@apollo/client'
 
 import { Post } from '../Post'
 
-const whitPhotos = gql`
+import { Ul } from './styles'
+
+const withPhotos = gql`
   query getPhotos {
     photos {
       id
@@ -19,7 +21,7 @@ const whitPhotos = gql`
 
 export const ListOfPosts = () => {
 
-  const { loading, error, data } = useQuery(whitPhotos);
+  const { loading, error, data } = useQuery(withPhotos);
 
   if (error) {
     return <h2>Internal Server Error</h2>;
@@ -29,10 +31,10 @@ export const ListOfPosts = () => {
   }
 
   return(
-    <ul>
+    <Ul>
       {
-        data.photos.map(photo => <Post key={ photo.id} {...photo} />)
+        data.photos.map(photo => <Post key={ photo.id} {...photo} categoryId={photo.categoryId}/>)
       }
-    </ul>
+    </Ul>
   )
 }
