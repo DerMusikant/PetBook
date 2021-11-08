@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 import {GlobalStyle} from './GlobalStyle'
 
 import { Layout } from './components/Layout'
@@ -9,7 +11,11 @@ export const App = () => (
     <>
       <GlobalStyle />
       <Layout>
-        <Home />
+        <Router>
+          <Routes>
+            <Route path='/' element={ <Home /> } />
+          </Routes>
+        </Router>
       </Layout>
     </>
   )

@@ -18,5 +18,10 @@ module.exports = {
   },
   plugins: [
     new html({template: './public/index.html'})
-  ]
+  ],
+  devServer: {
+    historyApiFallback: {
+      disableDotRule: true
+    }
+  }
 }
