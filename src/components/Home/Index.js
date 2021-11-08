@@ -1,9 +1,13 @@
 import React from 'react'
 
+import { ListOfPosts} from '../ListOfPosts'
+
 import { Main } from './styles'
 
 export const Home = () => (
     <>
-        <Main>Test</Main>
+        <Main>
+          <ListOfPosts />
+        </Main>
     </>
   )
