@@ -3,7 +3,7 @@ import { useQuery, gql } from '@apollo/client'
 
 import { Container } from './styles'
 
-const categories = gql`
+const getCategories = gql`
   query getCategories {
     categories {
       id
@@ -15,9 +15,9 @@ const categories = gql`
 `
 
 
-export const Post = ( { id, categoryId, src, userId, likes } ) => {
+export const Post = ( { categoryId, src, userId, likes } ) => {
 
-  const { loading, error, data } = useQuery(categories);
+  const { loading, error, data } = useQuery(getCategories);
 
   if (error) {
     return <h2>Internal Server Error</h2>;
@@ -26,12 +26,14 @@ export const Post = ( { id, categoryId, src, userId, likes } ) => {
     return <h2>Loading...</h2>;
   }
 
+  // This s#!t won't allow me to query by id with Graphql >:|
+
   const category = data.categories.find(el => el.id == categoryId)
 
   return(
     <Container>
       <div>
-        {category.name}
+        <img src={category.cover} /> {category.name} {category.emoji}
       </div>
       <div>
         <img src={src} />

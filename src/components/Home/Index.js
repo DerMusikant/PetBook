@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { ListOfPosts} from '../ListOfPosts'
+import { ListOfPostsContainer } from '../../container/ListOfPostsContainer'
 
 import { Main } from './styles'
 
 export const Home = () => (
     <>
         <Main>
-          <ListOfPosts />
+          <ListOfPostsContainer />
         </Main>
     </>
   )
