@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect, useState} from 'react'
 import { useQuery, gql } from '@apollo/client'
 
 import { Container } from './styles'
@@ -15,7 +15,27 @@ const getCategories = gql`
 `
 
 
-export const Post = ( { categoryId, src, userId, likes } ) => {
+export const Post = ( { id, categoryId, src, userId, likes } ) => {
+
+  const [element, setElement] = useState(null)
+  const [show, setShow] = useState(false)
+  let observer
+
+  const callback = (entries) => {
+    if(entries[0].isIntersecting){
+      setShow(true)
+      observer.disconnect()
+    }
+  }
+
+  useEffect( () => {
+    if (element){
+      observer = new window.IntersectionObserver(callback)
+      observer.observe(element)
+    }
+  }, [element])
+
+  // Fetching data with react apollo
 
   const { loading, error, data } = useQuery(getCategories);
 
@@ -31,21 +51,28 @@ export const Post = ( { categoryId, src, userId, likes } ) => {
   const category = data.categories.find(el => el.id == categoryId)
 
   return(
-    <Container>
-      <div>
-        <img src={category.cover} /> {category.name} {category.emoji}
-      </div>
-      <div>
-        <img src={src} />
-      </div>
-      <div>
+    <Container ref={ el => { setElement(el) } }>
+
+      {
+        show &&
+        <>
         <div>
-          Likes: {likes}
+          <img src={category.cover} /> {category.name} {category.emoji}
         </div>
         <div>
-          Give a like
+          <img src={src} />
         </div>
-      </div>
+        <div>
+          <div>
+            Likes: {likes}
+          </div>
+        </div>
+        <div>
+        Give a like
+        </div>
+        </>
+      }
+
     </Container>
   )
 }
