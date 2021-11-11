@@ -56,6 +56,7 @@ export const Post = ( { id, categoryId, src, userId, likes } ) => {
       {
         show &&
         <>
+        <a href={`/detail=${id}`}>
         <div>
           <img src={category.cover} /> {category.name} {category.emoji}
         </div>
@@ -70,6 +71,7 @@ export const Post = ( { id, categoryId, src, userId, likes } ) => {
         <div>
         Give a like
         </div>
+        </a>
         </>
       }
 
