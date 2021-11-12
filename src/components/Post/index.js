@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState} from 'react'
+import { Link } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 
 import { Container } from './styles'
@@ -56,22 +57,22 @@ export const Post = ( { id, categoryId, src, userId, likes } ) => {
       {
         show &&
         <>
-        <a href={`/detail=${id}`}>
-        <div>
-          <img src={category.cover} /> {category.name} {category.emoji}
-        </div>
-        <div>
-          <img src={src} />
-        </div>
-        <div>
-          <div>
-            Likes: {likes}
-          </div>
-        </div>
-        <div>
-        Give a like
-        </div>
-        </a>
+          <Link to={`/detail=${id}`}>
+            <div>
+              <img src={category.cover} /> {category.name} {category.emoji}
+            </div>
+            <div>
+              <img src={src} />
+            </div>
+            <div>
+              <div>
+                Likes: {likes}
+              </div>
+            </div>
+            <div>
+            Give a like
+            </div>
+          </Link>
         </>
       }
 

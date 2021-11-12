@@ -15,4 +15,6 @@ export const Logo = styled.div`
 export const Head = styled.div`
   display: flex;
   background-color: #242526;
+  position: sticky;
+  top: 0;
 `
