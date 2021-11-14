@@ -16,8 +16,8 @@ export const App = () => {
       <Layout>
         <Router>
           <Routes>
+            <Route path='/' element={ <Home /> } />
             <Route path='/detail=:id' element={ <SinglePostWithQuery />} />
-            <Route exact path='/' element={ <Home /> } />
           </Routes>
         </Router>
       </Layout>

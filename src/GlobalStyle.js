@@ -3,8 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
 
   html{
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #18191a;
   }
 
   * {
@@ -32,7 +31,6 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     background-color: #18191a;
-    overflow: hidden;
-    z-index: -1;
+    width: 100%;
   }
 `

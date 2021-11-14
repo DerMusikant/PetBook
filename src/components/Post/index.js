@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 
-import { Container } from './styles'
+import { Container, Photo, Profile, ProfilePic, Pic, Like } from './styles'
 
 const getCategories = gql`
   query getCategories {
@@ -58,20 +58,23 @@ export const Post = ( { id, categoryId, src, userId, likes } ) => {
         show &&
         <>
           <Link to={`/detail=${id}`}>
-            <div>
-              <img src={category.cover} /> {category.name} {category.emoji}
-            </div>
-            <div>
-              <img src={src} />
-            </div>
+            <Profile>
+              <ProfilePic>
+                <Pic src={category.cover} />
+              </ProfilePic>
+              <p>
+              {category.name} {category.emoji}
+              </p>
+            </Profile>
+              <Photo src={src} />
             <div>
               <div>
                 Likes: {likes}
               </div>
             </div>
-            <div>
+            <Like>
             Give a like
-            </div>
+            </Like>
           </Link>
         </>
       }
