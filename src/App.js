@@ -13,14 +13,15 @@ export const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Layout>
         <Router>
+        <Layout>
           <Routes>
             <Route path='/' element={ <Home /> } />
+            <Route path='/pet/:id' element={ <Home /> } />
             <Route path='/detail=:id' element={ <SinglePostWithQuery />} />
           </Routes>
+          </Layout>
         </Router>
-      </Layout>
     </>
   )
 }

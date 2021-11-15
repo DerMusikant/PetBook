@@ -7,6 +7,8 @@ import { getPhotos } from '../../hoc/getPhotos'
 
 export const ListOfPostsContainer = ( {categoryId }) => {
 
+  console.log(categoryId)
+
   const { loading, error, data } = useQuery(getPhotos, { variables: { categoryId: categoryId} });
 
   if (error) {

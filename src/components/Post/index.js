@@ -1,40 +1,16 @@
 import React, { useRef, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
-import { useQuery, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 
+import { useLazyLoading } from '../../hooks/useLazyLoading'
+import { getCategories } from '../../hoc/getCategories'
 import { Container, Photo, Profile, ProfilePic, Pic, Like } from './styles'
 
-const getCategories = gql`
-  query getCategories {
-    categories {
-      id
-      name
-      emoji
-      cover
-    }
-  }
-`
 
 
 export const Post = ( { id, categoryId, src, userId, likes } ) => {
 
-  const [element, setElement] = useState(null)
-  const [show, setShow] = useState(false)
-  let observer
-
-  const callback = (entries) => {
-    if(entries[0].isIntersecting){
-      setShow(true)
-      observer.disconnect()
-    }
-  }
-
-  useEffect( () => {
-    if (element){
-      observer = new window.IntersectionObserver(callback)
-      observer.observe(element)
-    }
-  }, [element])
+  const [show, element] = useLazyLoading();
 
   // Fetching data with react apollo
 
@@ -52,30 +28,32 @@ export const Post = ( { id, categoryId, src, userId, likes } ) => {
   const category = data.categories.find(el => el.id == categoryId)
 
   return(
-    <Container ref={ el => { setElement(el) } }>
+    <Container ref={element}>
 
       {
         show &&
         <>
-          <Link to={`/detail=${id}`}>
-            <Profile>
-              <ProfilePic>
-                <Pic src={category.cover} />
-              </ProfilePic>
-              <p>
-              {category.name} {category.emoji}
-              </p>
-            </Profile>
-              <Photo src={src} />
+            <Link to={`/pet/${category.id}`}>
+              <Profile>
+                <ProfilePic>
+                  <Pic src={category.cover} />
+                </ProfilePic>
+                <p>
+                  {category.name} {category.emoji}
+                </p>
+              </Profile>
+            </Link>
+            <Link to={`/detail=${id}`}>
+            <Photo src={src} />
             <div>
               <div>
                 Likes: {likes}
               </div>
             </div>
+            </Link>
             <Like>
             Give a like
             </Like>
-          </Link>
         </>
       }
 
