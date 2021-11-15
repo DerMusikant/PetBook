@@ -6,7 +6,7 @@ import {GlobalStyle} from './GlobalStyle'
 
 import { Layout } from './components/Layout'
 import { Home } from './pages/Home'
-import { SinglePostWithQuery } from './container/SinglePostWithQuery'
+import { Details } from './pages/Details'
 
 export const App = () => {
 
@@ -18,7 +18,7 @@ export const App = () => {
           <Routes>
             <Route path='/' element={ <Home /> } />
             <Route path='/pet/:id' element={ <Home /> } />
-            <Route path='/detail=:id' element={ <SinglePostWithQuery />} />
+            <Route path='/detail=:id' element={ <Details />} />
           </Routes>
           </Layout>
         </Router>

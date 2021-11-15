@@ -26,8 +26,6 @@ export const SinglePostWithQuery = () => {
   }
 
   return(
-    <main>
-      <Post {...data.photo}/>
-    </main>
+      <Post {...data.photo} />
   )
 }

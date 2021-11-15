@@ -7,15 +7,13 @@ import { getPhotos } from '../../hoc/getPhotos'
 
 export const ListOfPostsContainer = ( {categoryId }) => {
 
-  console.log(categoryId)
-
   const { loading, error, data } = useQuery(getPhotos, { variables: { categoryId: categoryId} });
 
   if (error) {
     return <h2>Internal Server Error</h2>;
   }
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <ListOfPosts />;
   }
 
   return(

@@ -1,31 +1,19 @@
-import React, { useRef, useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import { Link } from 'react-router-dom'
-import { useQuery } from '@apollo/client'
 
 import { useLazyLoading } from '../../hooks/useLazyLoading'
-import { getCategories } from '../../hoc/getCategories'
+import { getSingleCategory } from '../../hoc/getSingleCategory'
 import { Container, Photo, Profile, ProfilePic, Pic, Like } from './styles'
 
 
+const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
 
-export const Post = ( { id, categoryId, src, userId, likes } ) => {
 
+export const Post = ( { id, categoryId, src = DEFAULT_IMAGE, userId, likes = 0 } ) => {
+
+  const [category, setCategory] = useState({})
   const [show, element] = useLazyLoading();
-
-  // Fetching data with react apollo
-
-  const { loading, error, data } = useQuery(getCategories);
-
-  if (error) {
-    return <h2>Internal Server Error</h2>;
-  }
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
-
-  // This s#!t won't allow me to query by id with Graphql >:|
-
-  const category = data.categories.find(el => el.id == categoryId)
+  if (categoryId) { getSingleCategory(categoryId).then(response => setCategory(response)) }
 
   return(
     <Container ref={element}>
