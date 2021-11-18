@@ -1,17 +1,21 @@
 import styled from 'styled-components'
 
-export const Anchor = styled.a`
+export const Container = styled.div`
   display: flex;
   text-align: center;
+  align-items: center;
+  justify-content: start;
   text-decoration: none;
+  border-radius: 10px;
+  padding: 10px;
+  &:hover {
+    background-color: #3a3b3c;
+  }
 `
 export const Image = styled.img`
-  border: 1px solid #ddd;
-  box-shadow: 0px 10px 14px rgba(0, 0, 0, .2);
   border-radius: 50%;
-  height: auto;
   overflow: hidden;
   object-fit: cover;
-  height: 75px;
-  width: 75px;
+  height: 50px;
+  width: 50px;
 `

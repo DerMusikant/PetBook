@@ -1,9 +1,10 @@
 import React, { useState} from 'react'
 import { Link } from 'react-router-dom'
+import {MdThumbUpOffAlt, MdThumbUp} from 'react-icons/md'
 
 import { useLazyLoading } from '../../hooks/useLazyLoading'
 import { getSingleCategory } from '../../hoc/getSingleCategory'
-import { Container, Photo, Profile, ProfilePic, Pic, Like } from './styles'
+import { Container, Photo, Profile, ProfilePic, Pic, Like, Icon, Likes } from './styles'
 
 
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
@@ -11,9 +12,8 @@ const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1
 
 export const Post = ( { id, categoryId, src = DEFAULT_IMAGE, userId, likes = 0 } ) => {
 
-  const [category, setCategory] = useState({})
   const [show, element] = useLazyLoading();
-  if (categoryId) { getSingleCategory(categoryId).then(response => setCategory(response)) }
+  const category = getSingleCategory(categoryId)
 
   return(
     <Container ref={element}>
@@ -26,21 +26,23 @@ export const Post = ( { id, categoryId, src = DEFAULT_IMAGE, userId, likes = 0 }
                 <ProfilePic>
                   <Pic src={category.cover} />
                 </ProfilePic>
+                {category.name}
                 <p>
-                  {category.name} {category.emoji}
+                {category.emoji}
                 </p>
               </Profile>
             </Link>
             <Link to={`/detail=${id}`}>
             <Photo src={src} />
-            <div>
-              <div>
-                Likes: {likes}
-              </div>
-            </div>
             </Link>
+            <Likes>
+                <MdThumbUp /> {likes}
+            </Likes>
             <Like>
-            Give a like
+              <Icon>
+                <MdThumbUpOffAlt />
+              </Icon>
+              Like
             </Like>
         </>
       }

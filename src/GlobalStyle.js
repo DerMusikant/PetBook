@@ -4,6 +4,8 @@ export const GlobalStyle = createGlobalStyle`
 
   html{
     background-color: #18191a;
+    font-family: helvetica;
+    font-weight: bold;
   }
 
   * {
@@ -24,6 +26,10 @@ export const GlobalStyle = createGlobalStyle`
   a{
     font: inherit;
     text-decoration: none;
+  }
+
+  p{
+    font-weight: normal;
   }
 
   main{

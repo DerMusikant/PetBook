@@ -1,14 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { MdFavoriteBorder, MdOtherHouses, MdAccountCircle } from "react-icons/md"
 
-import { Logo, Head } from './styles'
+import { Logo, Container, NavBarLink, AccountName, Account } from './styles'
 
 export const Header = ( props ) => (
-        <Head>
+        <Container>
           <Link to='/'>
             <Logo>
               p
             </Logo>
           </Link>
-        </Head>
+          <div>
+            <NavBarLink to='/'>
+                <MdOtherHouses />
+            </NavBarLink>
+            <NavBarLink to='/liked'>
+                <MdFavoriteBorder />
+            </NavBarLink>
+          </div>
+          <NavBarLink to='/profile'>
+          <Account>
+            <MdAccountCircle />
+            <AccountName>
+              Profile
+            </AccountName>
+            </Account>
+          </NavBarLink>
+        </Container>
   )

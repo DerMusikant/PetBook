@@ -4,6 +4,7 @@ import {useQuery} from '@apollo/client'
 import { getCategories } from '../../hoc/getCategories'
 
 import { Category } from '../Category'
+import { Ul } from './styles'
 
 
 export const ListOfCategories = () => {
@@ -21,10 +22,10 @@ export const ListOfCategories = () => {
 
 
   return (
-    <ul>
+    <Ul>
       {
         data.categories.map( category => <Category key={ category.id} {...category}/>)
       }
-    </ul>
+    </Ul>
     )
   }
