@@ -32,6 +32,10 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal;
   }
 
+  input{
+    color: black;
+  }
+
   main{
     display: flex;
     flex-direction: column;
