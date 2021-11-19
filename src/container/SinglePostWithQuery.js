@@ -2,8 +2,8 @@ import React from 'react'
 import { useQuery } from '@apollo/client'
 import { useParams } from 'react-router-dom'
 
-import { getSinglePhoto } from '../../hoc/getSinglePhoto'
-import { Post } from '../../components/Post'
+import { getSinglePhoto } from '../hoc/getSinglePhoto'
+import { Post } from '../components/Post'
 
 
 export const SinglePostWithQuery = () => {

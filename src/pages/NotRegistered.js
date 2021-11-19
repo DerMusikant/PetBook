@@ -1,7 +1,7 @@
 import React from 'react'
 import Context from '../Context'
 
-import { UserForm } from '../components/UserForm'
+import { RegisterMutation } from '../container/RegisterMutation'
 
 export const NotRegistered = () => {
 
@@ -9,7 +9,7 @@ export const NotRegistered = () => {
     <Context.Consumer>
       {
         ( { activateAuth } ) => {
-          return <UserForm onSubmit={activateAuth} />
+          return <RegisterMutation onSubmit={activateAuth} />
         }
       }
     </Context.Consumer>

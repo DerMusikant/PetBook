@@ -1,8 +1,8 @@
 import React from 'react'
 import { useQuery } from '@apollo/client'
 
-import { ListOfPosts } from '../../components/ListOfPosts'
-import { getPhotos } from '../../hoc/getPhotos'
+import { ListOfPosts } from '../components/ListOfPosts'
+import { getPhotos } from '../hoc/getPhotos'
 
 
 export const ListOfPostsContainer = ( {categoryId }) => {
