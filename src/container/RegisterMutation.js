@@ -8,10 +8,10 @@ export const RegisterMutation = ( { onSubmit }) => {
     const variables = { input }
     mutation( {variables} ).then(onSubmit)
   }
-  
-  const mutation = useRegisterMutation()
+
+  const { mutation, error, loading } = useRegisterMutation()
 
   return (
-    <UserForm onSubmit={ formSubmit } title='Register'/>
+    <UserForm onSubmit={ formSubmit } disabled={loading} error={error} title='Register'/>
   )
 }

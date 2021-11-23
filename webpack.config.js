@@ -20,8 +20,6 @@ module.exports = {
     new html({template: './public/index.html'})
   ],
   devServer: {
-    historyApiFallback: {
-      disableDotRule: true
-    }
+    historyApiFallback: true
   }
 }
