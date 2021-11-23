@@ -6,7 +6,7 @@ export const LoginMutation = ( { onSubmit }) => {
 
   const formSubmit = ( input ) => {
     const variables = { input }
-    mutation( {variables} ).then(onSubmit)
+    mutation( {variables} ).then(({data}) => onSubmit(data.login))
   }
 
   const { mutation, error, loading } = useLoginMutation()

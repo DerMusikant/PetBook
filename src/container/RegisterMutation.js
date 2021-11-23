@@ -6,7 +6,7 @@ export const RegisterMutation = ( { onSubmit }) => {
 
   const formSubmit = ( input ) => {
     const variables = { input }
-    mutation( {variables} ).then(onSubmit)
+    mutation( {variables} ).then(({data}) => onSubmit(data.signup))
   }
 
   const { mutation, error, loading } = useRegisterMutation()
