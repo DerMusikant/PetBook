@@ -43,9 +43,9 @@ const client = new ApolloClient({
 
 
 render(
-  <Context.Provider>
-    <ApolloProvider client={client}>
+  <ApolloProvider client={client}>
+    <Context.Provider>
       <App />
-    </ApolloProvider>
-  </Context.Provider>
+    </Context.Provider>
+  </ApolloProvider>
   , document.querySelector('#root'))
