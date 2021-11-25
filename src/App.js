@@ -1,15 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 
 import {GlobalStyle} from './GlobalStyle'
 
 import { Layout } from './components/Layout'
-import { Home } from './pages/Home'
-import { Details } from './pages/Details'
-import { Liked } from './pages/Liked'
-import { Profile } from './pages/Profile'
-import { NotRegistered } from './pages/NotRegistered'
 import { Context } from './Context'
+
+
+const Home = React.lazy(() => import('./pages/Home'))
+const Details = React.lazy(() => import('./pages/Details'))
+const Liked = React.lazy(() => import('./pages/Liked'))
+const Profile = React.lazy(() => import('./pages/Profile'))
+const NotRegistered = React.lazy(() => import('./pages/NotRegistered'))
 
 
 export const App = () => {
@@ -17,7 +19,7 @@ export const App = () => {
   const { isAuth } = useContext(Context)
 
   return (
-    <>
+    <Suspense fallback={<div>Loading</div>} >
       <GlobalStyle />
       <Router>
         <Layout>
@@ -31,6 +33,6 @@ export const App = () => {
           </Routes>
         </Layout>
       </Router>
-    </>
+    </Suspense>
   )
 }

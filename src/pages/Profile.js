@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../Context'
 
-export const Profile = () => {
+export default () => {
 
   const { removeAuth } = useContext(Context)
 

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { ListOfPostsContainer } from '../container/ListOfPostsContainer'
 
-export const Home = () => {
+export default () => {
 
   return (
     <>

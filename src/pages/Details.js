@@ -3,7 +3,7 @@ import React from 'react'
 import { SinglePostWithQuery } from '../container/SinglePostWithQuery'
 
 
-export const Details = () => {
+export default () => {
 
   return(
     <main>
