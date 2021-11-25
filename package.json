@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
-    "serve": "webpack --mode development && npx serve dist -s",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -29,7 +28,6 @@
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.64.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.4.0",
-    "webpack-pwa-manifest": "^4.3.0"
+    "webpack-dev-server": "^4.4.0"
   }
 }
