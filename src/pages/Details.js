@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from '../components/Helmet'
 
 import { SinglePostWithQuery } from '../container/SinglePostWithQuery'
 
@@ -6,8 +7,10 @@ import { SinglePostWithQuery } from '../container/SinglePostWithQuery'
 export default () => {
 
   return(
-    <main>
-      <SinglePostWithQuery/>
-    </main>
+    <Helmet title='Details' subtitle='Yo check out this specific post.'>
+      <main>
+        <SinglePostWithQuery/>
+      </main>
+    </Helmet>
   )
 }
