@@ -1,7 +1,7 @@
 import React, { useContext, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 
-import {GlobalStyle} from './GlobalStyle'
+import {GlobalStyle} from './styles/GlobalStyle'
 
 import { Layout } from './components/Layout'
 import { Context } from './Context'

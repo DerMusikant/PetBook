@@ -1,11 +1,11 @@
 import React, { useState} from 'react'
-import { Link } from 'react-router-dom'
 import {MdThumbUpOffAlt, MdThumbUp} from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 import { ToggleLikeMutation as Like } from '../../container/ToggleLikeMutation'
 import { useLazyLoading } from '../../hooks/useLazyLoading'
 import { getSingleCategory } from '../../hoc/getSingleCategory'
-import { Container, Photo, Profile, ProfilePic, Pic, Icon, Likes } from './styles'
+import { Container, Photo, Profile, ProfilePic, Pic, Icon, Likes} from './styles'
 
 
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
@@ -33,9 +33,11 @@ export const Post = ( { id, liked, categoryId, src = DEFAULT_IMAGE, userId, like
                 </p>
               </Profile>
             </Link>
+            <div>
             <Link to={`/detail=${id}`}>
-            <Photo src={src} />
+              <Photo src={src} />
             </Link>
+            </div>
             <Likes>
                 <MdThumbUp /> {likes}
             </Likes>

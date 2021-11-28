@@ -1,6 +1,11 @@
 import styled from 'styled-components'
+import { fadeIn } from '../../styles/animation'
+
+import { Link as LinkRouter } from 'react-router-dom'
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   min-height: 300px;
   width: 80%;
   border-radius: 10px;
@@ -10,12 +15,13 @@ export const Container = styled.div`
 
 export const Photo = styled.img`
   width:100%;
+  ${fadeIn()}
 `
 
 export const Profile = styled.div`
   display: flex;
-  align-items: start;
   padding: 10px;
+  width: min-content;
 `
 
 export const ProfilePic = styled.div`
@@ -45,4 +51,8 @@ export const Icon = styled.div`
 
 export const Likes = styled.div`
   margin: 5px;
+`
+
+export const Link = styled(LinkRouter)`
+  width: min-content;
 `
