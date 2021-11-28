@@ -6,7 +6,7 @@ import {Header} from './Header'
 import {LeftSide} from './LeftSide'
 import {RightSide} from './RightSide'
 
-export const Layout = ( props ) => (
+const LayoutComponent = ( props ) => (
         <>
         <Header />
         <Container>
@@ -16,3 +16,5 @@ export const Layout = ( props ) => (
         </Container>
         </>
   )
+
+export const Layout = React.memo(LayoutComponent)
