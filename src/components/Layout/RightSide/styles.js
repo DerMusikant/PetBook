@@ -2,10 +2,15 @@ import styled from 'styled-components'
 import { FaDragon } from 'react-icons/fa'
 
 export const Sider = styled.div`
-  height: min-content;
-  position: sticky;
-  top: 61px;
-  padding: 20px;
+  display: none;
+
+  @media only screen and (min-width: 1024px){
+    display: block;
+    height: min-content;
+    position: sticky;
+    top: 61px;
+    padding: 20px;
+  }
 `
 
 export const Adds = styled.div`

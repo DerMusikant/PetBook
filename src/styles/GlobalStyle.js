@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #18191a;
     font-family: helvetica;
     font-weight: bold;
+    min-width: 360px;
   }
 
   * {

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../Context'
 import { Helmet } from '../components/Helmet'
+import { Button } from '../components/UserForm/styles'
 
 export default () => {
 
@@ -10,7 +11,7 @@ export default () => {
     <Helmet title='Profile' subtitle='Leaving so soon? 😿'>
       <div>
           <h2>Profile</h2>
-          <button onClick={removeAuth}>Log out</button>
+          <Button onClick={removeAuth} type='button' value='Log out' />
       </div>
     </Helmet>
     )

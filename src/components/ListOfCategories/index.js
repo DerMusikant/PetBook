@@ -22,10 +22,10 @@ export const ListOfCategories = () => {
 
 
   return (
-    <Ul>
-      {
-        data.categories.map( category => <Category key={ category.id} {...category}/>)
-      }
-    </Ul>
+      <Ul>
+        {
+          data.categories.map( category => <Category key={ category.id} {...category}/>)
+        }
+      </Ul>
     )
   }
